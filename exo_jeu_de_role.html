@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saroumane tower</title>
+</head>
+
+<body>
+    <script>
+        console.log("Vous venez de penetrer dans l'antre du magicien sombre... equipez vous jeune héro, vous en aurait besoin...");
+        let tabArm = [
+            [1, "bois", "1 point de degat"],
+            [2, "fer", "3 point de degat"],
+            [3, "magique", "10 point de degat"],
+        ];
+        console.log(tabArm);
+        const shieldMag = 4;
+        const armMag = 6;
+        const choice = [
+            1,
+            2,
+            3
+        ];
+
+
+
+        //choix de l'arme donnant ainsi le nombre de point d'attaque par tour
+        var degatArme = 0;
+        var epee = "";
+        var armure = "";
+        var userChoice = prompt(`veuillez choisir votre arme ${choice}`);
+
+
+        if (userChoice == 1) {
+            var degatArme = 1;
+            var epee = " de bois";
+            console.log("Vous avez choisi l'épée de bois !");
+        }
+        else if (userChoice == 2) {
+            var degatArme = 3;
+            var epee = " de fer";
+            console.log("Vous avez choisi l'épée de fer !");
+        }
+        else if (userChoice == 3) {
+            var degatArme = 10;
+            var epee = " magique";
+            console.log("Vous avez choisi l'épée magique !");
+        }
+
+
+
+        // Choix de l'armure donnant le nombre de point de resistance par tour
+        console.log("Maintenant, chosissez votre armure");
+        let tabShield = [
+            [1, "bois", "1 point de resistance"],
+            [2, "fer", "3 point de resistance"],
+            [3, "magique", "10 point de resistance"],
+        ];
+        console.log(tabShield);
+        const choice2 = [
+            1,
+            2,
+            3
+        ];
+        var shieldScore = 0;
+        var userChoice2 = prompt(`veuillez choisir votre armure ${choice2}`);
+        if (userChoice2 == 1) {
+            var shieldScore = 1;
+            var armure = "de bois";
+            console.log(`Vous avez choisi l'armure de bois !`);
+
+        }
+        else if (userChoice2 == 2) {
+            var shieldScore = 3;
+            var armure = " de fer";
+            console.log("Vous avez choisi l'armure de fer !");
+        }
+        else if (userChoice2 == 3) {
+            var shieldScore = 5;
+            var armure = " magique";
+            console.log("Vous avez choisi l'armure magique !");
+        }
+
+        console.log(`Parfait, vous avez decider d'affronter le magicien sombre avec votre épée ${epee} et votre armure ${armure}...`);
+        console.log(`Il est temps d'affronter le magicien sombre... Allons y !`);
+
+        // initialisation des points vie
+
+        var userLife = 100;
+
+        var lifeMag = 150;
+
+        // combat boucle
+        while (userLife > 0 && lifeMag > 0) {
+
+            console.log(`le magicien vous attaque ! il vous enlève ${armMag} point de vie, mais vous resistez de ${shieldScore} points grace à votre armure !`);
+
+            userLife = (userLife - armMag) + shieldScore;
+
+
+            console.log(`Il vous reste ${userLife} points de vie`);
+            console.log(`Vous attaquez à votre tour le magicien sombre... vous lui enlevez ${degatArme} points de vie....`);
+            lifeMag = (lifeMag - degatArme + 6);
+            if (lifeMag > 0) {
+                console.log(`Il reste ${lifeMag} points de vie au magicien sombre...`)
+            }
+            else if (lifeMag < 0) {
+                console.log(`Il reste 0 points de vie au magicien sombre...`)
+            }
+
+
+            if (userLife < 0) {
+                console.log("Le magicien sombre à eu raison de vous... Par manque de force ou d'intelligence de votre part ?... les Ent deciderons")
+            }
+            else if (lifeMag < 0) {
+                console.log("Bravo vous avez battu le magicien sombre ! Cependant, il faut continuer ! la route jusqu'au Mordor reste longue....")
+            }
+
+
+
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
